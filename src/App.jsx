@@ -1,17 +1,15 @@
 function App() {
   return (
-    <>
-      <div className="flex justify-center space-x-4 my-4"></div>
-      <h1>Template React/vite Tailwind</h1>
-      <div>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+    <div className="flex flex-col justify-center items-center gap-12 m-12">
+      <h1>Startup template</h1>
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, et nulla?
+        Dolore dicta dignissimos asperiores obcaecati cupiditate suscipit,
+        ratione esse odio ipsam beatae! Adipisci, ex officia! Quas sint
+        laudantium blanditiis?
       </p>
-    </>
+    </div>
   );
 }
 
