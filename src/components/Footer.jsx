@@ -1,25 +1,24 @@
 import React from "react";
+import { FaInstagram } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { FaFacebookSquare } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white fixed bottom-0 w-full" >
-      <div className="md:flex md:justify-between md:items-center sm:px-12 px-4 bg-[#ffffff19] py-7">
-        <h1
-          className="lg:text-4xl text-3xl md:mb-0 mb-6 lg:leading-normal font-semibold
-         md:w-2/5"
-        >
-          <span className="text-teal-400">Fake Store AB</span>
+      <div className="md:flex md:justify-between md:items-center sm:px-12 px-4 bg-[#ffffff19] py-1">
+        <h1 className="lg:text-2xl text-xl md:mb-0 mb-6 lg:leading-normal font-semibold md:w-2/5"><span className="text-teal-400">Fake Store AB</span>
         </h1>
         <div>
             <div className="flex justify-between p-4">
-              <a>Instagram</a>
-              <a>X</a>
-              <a>Facebook</a>
+              <a href="https://www.instagram.com" target="_blank"><FaInstagram size={30} /></a>
+              <a href="https://x.com/" target="_blank"><FaSquareXTwitter size={30} /></a>
+              <a href="https://www.facebook.com" target="_blank"><FaFacebookSquare size={30} /></a>
             </div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 text-center pt-2 text-gray-400 text-sm pb-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 text-center pt-2 text-gray-400 text-sm pb-2">
         <span>© 2024 Grupp 5. All rights reserved.</span>
         <span>Terms · Privacy Policy</span>
       </div>
