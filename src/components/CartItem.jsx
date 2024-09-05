@@ -1,14 +1,18 @@
 import React from "react";
 
 function CartItem({ item, removeFromCart }) {
-//   const handleRemoveClick = () => {
-//     removeFromCart(item.id);
-//   };
-
   return (
     <li>
-      {item.name} - {item.price} SEK
-      {/* <button onClick={handleRemoveClick}>Remove</button> */}
+      {/* Display the product image */}
+      <img src={item.image} alt={item.title} style={{ width: "100px", height: "100px" }} />
+      
+      {/* Display the product title and name */}
+      <div>
+        <h4>{item.title}</h4>
+        <p>{item.name} - {item.price} SEK</p>
+      </div>
+
+      {/* Remove button */}
       <button onClick={() => removeFromCart(item.id)}>Remove</button>
     </li>
   );
