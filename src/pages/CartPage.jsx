@@ -1,6 +1,9 @@
 import CartItem from "../components/CartItem";
+import { useNavigate } from "react-router-dom";
 
-const CartPage = ({ cartItems, removeFromCart }) => {
+const CartPage = ({ cartItems, removeFromCart, clearCart }) => {
+  // Use navigate()
+  const navigate = useNavigate();
   // Funktion för att beräkna totalsumman
   const calculateTotal = () => {
     // Summera alla priser från varukorgen
@@ -8,7 +11,11 @@ const CartPage = ({ cartItems, removeFromCart }) => {
   };
 
   const handleCheckout = () => {
+    // Clear the cart
+    clearCart();
 
+    // Navigate back to the Homepage 
+    navigate("/");
   };
 
   return (
@@ -28,7 +35,9 @@ const CartPage = ({ cartItems, removeFromCart }) => {
 
           {/* Visa totalsumman */}
           <div className="mt-4">
-            <p className="text-lg font-bold">Total: {calculateTotal().toFixed(2)} SEK</p>
+            <p className="text-lg font-bold">
+              Total: {calculateTotal().toFixed(2)} SEK
+            </p>
           </div>
 
           {/* Checkout-knappen */}
@@ -47,4 +56,3 @@ const CartPage = ({ cartItems, removeFromCart }) => {
 };
 
 export default CartPage;
-

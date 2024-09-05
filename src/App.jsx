@@ -21,6 +21,12 @@ const App = () => {
     );
   };
 
+  // Clearing the cart when the user is clicking the Checkout button
+
+  const clearCart = () => {
+    setCartItems([]); // Clear all items from the cart
+  };
+
   // Lägga skicka dess isånnafall t.ex. <Header cartItems={cartItems}/>
   return (
     <Router>
@@ -34,7 +40,7 @@ const App = () => {
         <Route
           path="/cart"
           element={
-            <CartPage cartItems={cartItems} removeFromCart={removeFromCart} />
+            <CartPage cartItems={cartItems} removeFromCart={removeFromCart} clearCart={clearCart}/>
           }
         />
       </Routes>
