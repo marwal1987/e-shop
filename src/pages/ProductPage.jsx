@@ -32,10 +32,10 @@ const ProductPage = ({ addToCart }) => {
       {product ? (
         <div>
           <h1>{product.title}</h1>
-          <img src={product.image} alt={product.title} />
+          <img src={product.image} alt={product.title} className="max-w-40" />
           <p>{product.description}</p>
           <p>Price: ${product.price}</p>
-          <button onClick={() => addToCart(product)} >Add to Cart</button>
+          <button onClick={() => addToCart(product)}>Add to Cart</button>
         </div>
       ) : (
         <div>No product found</div>

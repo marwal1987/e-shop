@@ -5,16 +5,23 @@ import { FaFacebookSquare } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white fixed bottom-0 w-full" >
+    <footer className="bg-gray-900 text-white fixed bottom-0 w-full">
       <div className="md:flex md:justify-between md:items-center sm:px-12 px-4 bg-[#ffffff19] py-1">
-        <h1 className="lg:text-2xl text-xl md:mb-0 mb-6 lg:leading-normal font-semibold md:w-2/5"><span className="text-teal-400">Fake Store AB</span>
+        <h1 className="lg:text-2xl text-xl md:mb-0 mb-6 lg:leading-normal font-semibold md:w-2/5">
+          <span className="text-teal-400">Fake Store AB</span>
         </h1>
         <div>
-            <div className="flex justify-between p-4">
-              <a href="https://www.instagram.com" target="_blank"><FaInstagram size={30} /></a>
-              <a href="https://x.com/" target="_blank"><FaSquareXTwitter size={30} /></a>
-              <a href="https://www.facebook.com" target="_blank"><FaFacebookSquare size={30} /></a>
-            </div>
+          <div className="flex justify-between p-4">
+            <a href="https://www.instagram.com" target="_blank">
+              <FaInstagram size={30} />
+            </a>
+            <a href="https://x.com/" target="_blank">
+              <FaSquareXTwitter size={30} />
+            </a>
+            <a href="https://www.facebook.com" target="_blank">
+              <FaFacebookSquare size={30} />
+            </a>
+          </div>
         </div>
       </div>
 
@@ -27,5 +34,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
-
