@@ -5,7 +5,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white fixed bottom-0 w-full">
+    <footer className="bg-gray-900 text-white w-full mt-12">
       <div className="md:flex md:justify-between md:items-center sm:px-12 px-4 bg-[#ffffff19] py-1">
         <h1 className="lg:text-2xl text-xl md:mb-0 mb-6 lg:leading-normal font-semibold md:w-2/5">
           <span className="text-teal-400">Fake Store AB</span>

@@ -19,11 +19,11 @@ const CartPage = ({ cartItems, removeFromCart, clearCart }) => {
   };
 
   return (
-    <div>
-      <h1>Your Cart</h1>
+    <div className="w-2/3 m-auto flex flex-col items-center justify-start h-screen gap-12 border-2 overflow-scroll ">
+      <h1 className="text-2xl mt-12">Your Cart</h1>
       {cartItems.length > 0 ? (
-        <div>
-          <ul>
+        <div className="flex flex-col items-center gap-12">
+          <ul className="flex flex-col items-center gap-12">
             {cartItems.map((item) => (
               <CartItem
                 key={item.id}
@@ -34,22 +34,22 @@ const CartPage = ({ cartItems, removeFromCart, clearCart }) => {
           </ul>
 
           {/* Visa totalsumman */}
-          <div className="mt-4">
-            <p className="text-lg font-bold">
+        
+            <p className="text-xl font-bold">
               Total: {calculateTotal().toFixed(2)} SEK
             </p>
-          </div>
+          
 
           {/* Checkout-knappen */}
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 ml-2 mt-2 rounded"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 ml-2 m-2 rounded"
             onClick={handleCheckout}
           >
             Checkout
           </button>
         </div>
       ) : (
-        <p>Your cart is empty.</p>
+        <h3 className="max-w-full h-screen">Your cart is empty.</h3>
       )}
     </div>
   );

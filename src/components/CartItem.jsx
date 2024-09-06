@@ -2,18 +2,17 @@ import React from "react";
 
 function CartItem({ item, removeFromCart }) {
   return (
-    <li>
+    <li className="w-2/3 grid grid-cols-4 gap-12 items-center shadow-lg p-4">
       {/* Display the product image */}
       <img src={item.image} alt={item.title} style={{ width: "100px", height: "100px" }} />
       
       {/* Display the product title and name */}
-      <div>
         <h4>{item.title}</h4>
-        <p>{item.name} - {item.price} SEK</p>
-      </div>
-
+     
+        <p>SEK {item.price}</p>
+      
       {/* Remove button */}
-      <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 ml-2 mt-2 mb-2 rounded" onClick={() => removeFromCart(item.id)}>Remove</button>
+      <button className="bg-red-500 hover:bg-red-700 text-white font-bold rounded h-9 w-24" onClick={() => removeFromCart(item.id)}>Remove</button>
     </li>
   );
 }

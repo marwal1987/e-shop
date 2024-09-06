@@ -25,15 +25,25 @@ const HomePage = ({ addToCart }) => {
   }, []);
 
   // Om laddar visas en laddningsindikator
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <div className="max-w-full h-screen flex items-center justify-center m-auto">
+        Loading products...
+      </div>
+    );
 
   // Om det finns ett fel, visa felmeddelandet
-  if (error) return <div>{error}</div>;
+  if (error)
+    return (
+      <div className="max-w-full h-screen flex items-center justify-center m-auto">
+        {error}
+      </div>
+    );
 
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-4">Products</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="max-w-[90%] flex flex-col items-center justify-center m-auto gap-12">
+      <h1 className="text-2xl font-bold mt-12">Products</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
         {products.map((product) => (
           <ProductCard
             key={product.id}

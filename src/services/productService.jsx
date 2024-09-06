@@ -1,4 +1,5 @@
 import axios from "axios";
+import localProducts from "../data/localProducts.json";
 
 const API_URL = "https://fakestoreapi.com/products";
 
@@ -8,8 +9,11 @@ const getAllProducts = async () => {
     const response = await axios.get(API_URL);
     return response.data;
   } catch (error) {
-    console.error("Failed to fetch products:", error);
-    throw new Error("Failed to fetch products");
+    console.error(
+      "Failed to fetch products from API, using local data:",
+      error
+    );
+    return localProducts; // Använder lokal data om API:t misslyckas
   }
 };
 
@@ -19,50 +23,21 @@ const getProductById = async (id) => {
     const response = await axios.get(`${API_URL}/${id}`);
     return response.data;
   } catch (error) {
-    console.error("Failed to fetch product:", error);
-    throw new Error("Failed to fetch product");
+    console.error("Failed to fetch product from API, using local data:", error);
+    const product = localProducts.find(
+      (product) => product.id === parseInt(id)
+    );
+    if (product) {
+      return product;
+    } else {
+      throw new Error("Product not found in local data");
+    }
   }
 };
 
-// //CREATE
-// const createProduct = async (newProduct) => {
-//     try {
-//         const response = await axios.post(`${API_URL}`, newProduct);
-//         return response.data;
-//      } catch (error) {
-//         console.error('failed creating Product:', error);
-
-//      }
-// };
-
-// //UPDATE
-
-// const updateProduct =  async (productId, updatedProduct) => {
-//     try {
-//         const response = await axios.put(`${API_URL}/${id}`, productId, updatedProduct);
-//         return response.data;
-//      } catch (error) {
-//         console.error(`Error updating product with ID ${productId}:`, error);
-//     }
-//   };
-
-//   //DELETE
-
-//   const deleteProduct =  async (productId) => {
-//     try {
-//         const response = await axios.delete(`${API_URL}/${id}`, productId, updatedProduct);
-//         return response.data;
-//      } catch (error) {
-//         console.error(`Error deleting product with ID ${productId}:`, error);
-//     }
-//   };
-
 const productService = {
-  getProductById,
   getAllProducts,
-  // createProduct,
-  // updateProduct,
-  // deleteProduct,
+  getProductById,
 };
 
 export default productService;
