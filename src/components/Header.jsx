@@ -8,7 +8,7 @@ import { FaShoppingCart } from "react-icons/fa";
 const Header = ({ cartItems }) => {
   return (
     <header className="bg-gray-900 sticky top-0 z-[20] flex w-full items-center justify-between p-6 text-white">
-      <img className="text-teal-400 m-0 font-bold" alt="LOGO" />
+      <img className="w-6 h-6" src="src/assets/react.svg" />
 
       <NavLink to="/">
         <FaHome size={20} />

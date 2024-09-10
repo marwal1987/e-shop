@@ -13,7 +13,7 @@ const getAllProducts = async () => {
       "Failed to fetch products from API, using local data:",
       error
     );
-    return localProducts; // Använder lokal data om API:t misslyckas
+    return localProducts; // Använder lokal data om fetch till API misslyckas (Martin)
   }
 };
 

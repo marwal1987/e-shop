@@ -15,7 +15,6 @@ Beskrivning av Projektet
 
 Under denna vecka kommer deltagarna att utveckla en enkel e-handelsplattform i React. Projektet kommer att täcka grundläggande och avancerade React-koncept som komponenter, props, state management, React Hooks, lifecycle methods, och en strukturerad projektstruktur. Applikationen ska inkludera en produktlista, en produktsida för detaljer, och en funktion för att lägga till produkter i en varukorg.
 
-
     Introduktion: Presentation av projektstrukturen och hur vi ska organisera våra filer och komponenter från början.
 
     Filstruktur: Skapa en grundläggande filstruktur (t.ex. components/, pages/, styles/) och förklara varför detta är viktigt för projektets skalbarhet.
@@ -30,39 +29,39 @@ Kopiera kod
 
 src/
 
-├── assets/                 # Bilder, ikoner, och andra statiska resurser
+├── assets/ # Bilder, ikoner, och andra statiska resurser
 
-├── components/             # Återanvändbara UI-komponenter
+├── components/ # Återanvändbara UI-komponenter
 
-│   ├── Header.js           # Header-komponent
+│ ├── Header.js # Header-komponent
 
-│   ├── Footer.js           # Footer-komponent
+│ ├── Footer.js # Footer-komponent
 
-│   ├── ProductCard.js      # Visar en produkt i listformat
+│ ├── ProductCard.js # Visar en produkt i listformat
 
-│   ├── CartItem.js         # Visar en produkt i varukorgen
+│ ├── CartItem.js # Visar en produkt i varukorgen
 
-├── pages/                  # Applikationens sidor (vyer)
+├── pages/ # Applikationens sidor (vyer)
 
-│   ├── HomePage.js         # Startsida med produktlista
+│ ├── HomePage.js # Startsida med produktlista
 
-│   ├── ProductPage.js      # Enskild produktsida med detaljer
+│ ├── ProductPage.js # Enskild produktsida med detaljer
 
-│   ├── CartPage.js         # Sida för att visa produkter i varukorgen
+│ ├── CartPage.js # Sida för att visa produkter i varukorgen
 
-├── services/               # API-anrop och datahantering
+├── services/ # API-anrop och datahantering
 
-│   ├── productService.js   # Funktioner för att hämta produkter från API
+│ ├── productService.js # Funktioner för att hämta produkter från API
 
-├── styles/                 # Stilmallar (CSS/SASS)
+├── styles/ # Stilmallar (CSS/SASS)
 
-│   ├── App.css             # Global stil för applikationen
+│ ├── App.css # Global stil för applikationen
 
-├── App.js                  # Huvudkomponent som hanterar routing
+├── App.js # Huvudkomponent som hanterar routing
 
-├── index.js                # Inträdespunkt för React-applikationen
+├── index.js # Inträdespunkt för React-applikationen
 
-└── utils/                  # Hjälpfunktioner och verktyg
+└── utils/ # Hjälpfunktioner och verktyg
 
 Förklaringar av Projektstrukturen
 Projektstruktur: Placera komponenterna i en organiserad filstruktur och förklara hur den ska skalas.
@@ -131,7 +130,7 @@ Komponenter:
 
     Visar information om en produkt i varukorgen.
 
-    Möjlighet att ändra kvantitet eller ta bort produkten från varukorgen.
+    Möjlighet att ändra kvantitet eller ta bort produkten från varukorgen. (TODO)
 
     HomePage.js
 
@@ -145,3 +144,53 @@ Komponenter:
 
     Visar alla produkter som har lagts till i varukorgen, tillsammans med en totalsumma och en "Check out" knapp.
 
+### Flödesschema i appen med dynamisk routing (react-router-dom)
+
+```
++---------------------------------------------+
+|       (ProductCard.jsx i HomePage.jsx)      |
+|                                             |
+| Användaren klickar på en produktlänk        |
+| - id:t följer med som en del av URL:en      |
+|                                             |
+| react-router-dom uppdaterar URL till        |
+| /product/:id                                |
++----------------------+----------------------+
+                       |
+                       v
++---------------------------------------------+
+|                   (App.jsx)                 |
+|                                             |
+| <Route path="/product/:id"> matchar URL:en  |
+| och renderar ProductPage-komponenten        |
++----------------------+----------------------+
+                       |
+                       v
++---------------------------------------------+
+|               (ProductPage.jsx)             |
+|                                             |
+| useParams() hämtar 'id' från URL:en         |
+| - id används för att identifiera produkten  |
+| - id skickas med i anropet till             |
+| productService.getProductById(id)           |
+| för att hämta produktdatat om den specifika |
+| produkten                                   |
++----------------------+----------------------+
+                       |
+                       v
++---------------------------------------------+
+|             (productService.jsx)            |
+|                                             |
+| productService hämtar produktdata från      |
+| API eller lokal data baserat på 'id'        |
+| - Returnerar hela produktens data           |
++----------------------+----------------------+
+                       |
+                       v
++---------------------------------------------+
+|               (ProductPage.jsx)             |
+| - ProductPage visar produktens data         |
+| (titel, pris, beskrivning, etc.)            |
+| - Produktdata renderas på sidan             |
++---------------------------------------------+
+```

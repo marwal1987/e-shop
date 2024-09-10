@@ -36,7 +36,7 @@ const CartPage = ({ cartItems, removeFromCart, clearCart }) => {
           {/* Visa totalsumman */}
         
             <p className="text-xl font-bold">
-              Total: {calculateTotal().toFixed(2)} SEK
+              Total: ${calculateTotal().toFixed(2)}
             </p>
           
 
